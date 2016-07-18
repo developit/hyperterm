@@ -14,7 +14,6 @@
     "preact": "^5.3.1",
     "preact-compat": "^2.0.0",
     "preact-deep-force-update": "^0.1.0",
-    "react-addons-pure-render-mixin": "15.2.1",
     "react-redux": "4.4.5",
     "redux": "3.5.2",
     "redux-thunk": "2.1.0",
