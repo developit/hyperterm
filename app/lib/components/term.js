@@ -14,6 +14,10 @@ export default class Term extends Component {
     props.ref_(this);
   }
 
+  shouldComponentUpdate () {
+    return false;
+  }
+
   componentDidMount () {
     const { props } = this;
     this.term = new hterm.Terminal();
@@ -156,7 +160,11 @@ export default class Term extends Component {
 
   componentWillUnmount () {
     const iframeWindow = this.getTermDocument().defaultView;
-    iframeWindow.addEventListener('wheel', this.onWheel);
+    // this is actually never true (and possibly unnecessary?)
+    // since when removed the document is destroyed:
+    if (iframeWindow) {
+      iframeWindow.removeEventListener('wheel', this.onWheel);
+    }
     clearTimeout(this.scrollbarsHideTimer);
     this.props.ref_(null);
   }

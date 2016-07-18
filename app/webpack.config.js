@@ -11,6 +11,14 @@ module.exports = {
     path: path.join(__dirname, './dist'),
     filename: 'bundle.js'
   },
+  resolve: {
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+      'react-deep-force-update': 'preact-deep-force-update',
+      'react-addons-pure-render-mixin': path.join(__dirname, 'lib', 'utils', 'pure-render-mixin')
+    }
+  },
   module: {
     loaders: [
       {
